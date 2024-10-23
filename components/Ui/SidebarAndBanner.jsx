@@ -1,7 +1,9 @@
 "use client";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/autoplay";
 import { useState } from "react";
 import Image from "next/image";
 
@@ -33,37 +35,6 @@ const HeroWithSidebar = () => {
     }
   };
 
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 2000,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          infinite: true,
-          dots: true,
-        },
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          dots: true,
-          infinite: true,
-          autoplay: true,
-        },
-      },
-    ],
-  };
-
   return (
     <div className="flex flex-col lg:flex-row gap-10 mb-10">
       {/* Sidebar */}
@@ -80,8 +51,25 @@ const HeroWithSidebar = () => {
 
       {/* Hero Carousel */}
       <div className="w-full lg:w-3/4 border-l border-gray-400 pl-8">
-        <Slider {...settings} className="mt-8">
-          <div>
+        <Swiper
+          modules={[Pagination, Autoplay]}
+          pagination={{ clickable: true }}
+          autoplay={{ delay: 2000 }}
+          spaceBetween={30}
+          slidesPerView={1}
+          className="mt-8"
+          breakpoints={{
+            1024: {
+              slidesPerView: 1,
+              spaceBetween: 30,
+            },
+            768: {
+              slidesPerView: 1,
+              spaceBetween: 20,
+            },
+          }}
+        >
+          <SwiperSlide>
             <Image
               src="/assets/banner-8.jpg"
               className="object-contain rounded-lg w-[450px] lg:w-full h-[280px]"
@@ -89,8 +77,8 @@ const HeroWithSidebar = () => {
               width={450}
               height={280}
             />
-          </div>
-          <div>
+          </SwiperSlide>
+          <SwiperSlide>
             <Image
               src="/assets/banner-9.jpg"
               className="object-contain rounded-lg w-[450px] lg:w-full h-[280px]"
@@ -98,8 +86,8 @@ const HeroWithSidebar = () => {
               width={450}
               height={280}
             />
-          </div>
-          <div>
+          </SwiperSlide>
+          <SwiperSlide>
             <Image
               src="/assets/banner-10.jpg"
               className="object-contain rounded-lg w-[450px] lg:w-full h-[280px]"
@@ -107,8 +95,8 @@ const HeroWithSidebar = () => {
               width={450}
               height={280}
             />
-          </div>
-          <div>
+          </SwiperSlide>
+          <SwiperSlide>
             <Image
               src="/assets/banner-11.jpg"
               className="object-contain rounded-lg w-[450px] lg:w-full h-[280px]"
@@ -116,8 +104,8 @@ const HeroWithSidebar = () => {
               width={450}
               height={280}
             />
-          </div>
-        </Slider>
+          </SwiperSlide>
+        </Swiper>
       </div>
     </div>
   );
