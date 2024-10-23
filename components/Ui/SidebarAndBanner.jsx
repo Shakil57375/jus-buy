@@ -72,37 +72,37 @@ const HeroWithSidebar = () => {
           <SwiperSlide>
             <Image
               src="/assets/banner-8.jpg"
-              className="object-contain rounded-lg w-[450px] lg:w-full h-[280px]"
+              className="object-contain rounded-lg w-[450px] lg:w-full h-[350px]"
               alt="banner"
               width={450}
-              height={280}
+              height={350}
             />
           </SwiperSlide>
           <SwiperSlide>
             <Image
               src="/assets/banner-9.jpg"
-              className="object-contain rounded-lg w-[450px] lg:w-full h-[280px]"
+              className="object-contain rounded-lg w-[450px] lg:w-full h-[350px]"
               alt="banner"
               width={450}
-              height={280}
+              height={350}
             />
           </SwiperSlide>
           <SwiperSlide>
             <Image
               src="/assets/banner-10.jpg"
-              className="object-contain rounded-lg w-[450px] lg:w-full h-[280px]"
+              className="object-contain rounded-lg w-[450px] lg:w-full h-[350px]"
               alt="banner"
               width={450}
-              height={280}
+              height={350}
             />
           </SwiperSlide>
           <SwiperSlide>
             <Image
               src="/assets/banner-11.jpg"
-              className="object-contain rounded-lg w-[450px] lg:w-full h-[280px]"
+              className="object-contain rounded-lg w-[450px] lg:w-full h-[350px]"
               alt="banner"
               width={450}
-              height={280}
+              height={350}
             />
           </SwiperSlide>
         </Swiper>
