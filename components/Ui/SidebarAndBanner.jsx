@@ -65,7 +65,7 @@ const HeroWithSidebar = () => {
   };
 
   return (
-    <div className="flex flex-col lg:flex-row gap-10">
+    <div className="flex flex-col lg:flex-row gap-10 mb-10">
       {/* Sidebar */}
       <div className="w-full lg:w-1/4 bg-white p-4 rounded-lg shadow-md my-8">
         <h3 className="font-semibold text-lg mb-4">Categories</h3>
@@ -79,45 +79,44 @@ const HeroWithSidebar = () => {
       </div>
 
       {/* Hero Carousel */}
-      <div className="w-full lg:w-3/4 border-l border-gray-400 px-4">
+      <div className="w-full lg:w-3/4 border-l border-gray-400 pl-8">
         <Slider {...settings} className="mt-8">
           <div>
             <Image
               src="/assets/banner-8.jpg"
-              className="object-contain rounded-lg w-[450px] lg:w-full h-[300px]"
+              className="object-contain rounded-lg w-[450px] lg:w-full h-[280px]"
               alt="banner"
               width={450}
-              height={300}
+              height={280}
             />
           </div>
           <div>
             <Image
               src="/assets/banner-9.jpg"
-              className="object-contain rounded-lg w-[450px] lg:w-full h-[300px]"
+              className="object-contain rounded-lg w-[450px] lg:w-full h-[280px]"
               alt="banner"
               width={450}
-              height={300}
+              height={280}
             />
           </div>
           <div>
             <Image
               src="/assets/banner-10.jpg"
-              className="object-contain rounded-lg w-[450px] lg:w-full h-[300px]"
+              className="object-contain rounded-lg w-[450px] lg:w-full h-[280px]"
               alt="banner"
               width={450}
-              height={300}
+              height={280}
             />
           </div>
           <div>
             <Image
               src="/assets/banner-11.jpg"
-              className="object-contain rounded-lg w-[450px] lg:w-full h-[300px]"
+              className="object-contain rounded-lg w-[450px] lg:w-full h-[280px]"
               alt="banner"
               width={450}
-              height={300}
+              height={280}
             />
           </div>
-         
         </Slider>
       </div>
     </div>
