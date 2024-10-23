@@ -8,8 +8,6 @@ const geistSans = localFont({
   weight: "100 900",
 });
 
-
-
 const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
@@ -27,11 +25,11 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="max-w-7xl mx-auto px-10 lg:px-0">
+        <>
           <Navbar />
-          {children}
+          <div className="max-w-7xl mx-auto px-10 lg:px-0">{children}</div>
           <Footer />
-        </div>
+        </>
       </body>
     </html>
   );
