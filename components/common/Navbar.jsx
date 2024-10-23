@@ -33,7 +33,6 @@ const Navbar = () => {
       >
         <Image src="/assets/logo.png" alt="Logo" width={152} height={52} />
       </Link>
-
       {/* Navigation Links */}
       <div className="hidden space-x-8 text-sm font-medium lg:items-center lg:flex ">
         <Link
