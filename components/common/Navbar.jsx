@@ -1,7 +1,8 @@
 // Import necessary Next.js components
 "use client";
 import { FaHeart, FaUser } from "react-icons/fa";
-import { IoBagOutline } from "react-icons/io5";
+import { FaRegHeart } from "react-icons/fa6";
+import { IoBagOutline, IoCartOutline } from "react-icons/io5";
 import { CiSearch } from "react-icons/ci";
 import { MdOutlineMenuOpen } from "react-icons/md";
 import Image from "next/image"; // For optimized image rendering
@@ -90,23 +91,11 @@ const Navbar = () => {
           />
           <CiSearch className="hover:text-gray-500 cursor-pointer text-2xl" />
         </div>
-        <div className="group relative">
-          <Link href="/login">
-            <FaUser className="hover:text-gray-500 cursor-pointer text-3xl" />
-          </Link>
-          <div className="group-hover:block hidden absolute dropdown-menu right-0 pt-4">
-            <div className="flex flex-col gap-2 w-36 py-3 px-5 bg-slate-100 text-gray-500 rounded">
-              <p className="cursor-pointer hover:text-black">My Profile</p>
-              <p className="cursor-pointer hover:text-black">Orders</p>
-              <p className="cursor-pointer hover:text-black">Logout</p>
-            </div>
-          </div>
-        </div>
         <Link href="/wishlist">
-          <FaHeart className="text-red-500 text-2xl" />
+          <FaRegHeart className=" text-2xl" />
         </Link>
         <Link href="/cart" className="relative">
-          <IoBagOutline className="hover:text-gray-500 cursor-pointer text-3xl" />
+          <IoCartOutline className="hover:text-gray-500 cursor-pointer text-3xl" />
           <span className="absolute bottom-0 right-0 bg-black text-white text-xs w-4 h-4 rounded-full flex items-center justify-center">
             {/* {getCartCount()} */}0
           </span>
