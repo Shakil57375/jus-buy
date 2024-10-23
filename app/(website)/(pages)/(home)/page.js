@@ -1,7 +1,9 @@
+import HeroWithSidebar from "@/components/Ui/SidebarAndBanner";
+
 export default function Home() {
   return (
     <div>
-      home
+      <HeroWithSidebar />
     </div>
   );
 }
