@@ -3,6 +3,7 @@ import React from "react";
 import Title from "../custom/Title";
 import { useShopContext } from "@/app/context/ShopContext";
 import ProductItem from "../custom/ProductItem";
+import Link from "next/link";
 
 const ExploreProducts = () => {
   const { products } = useShopContext();
@@ -18,9 +19,9 @@ const ExploreProducts = () => {
         ))}
       </div>
       <div className="flex justify-center mt-4"> {/* Centering the button */}
-        <button className="px-8 py-4 bg-orange-500 rounded text-white">
+        <Link href={"/allProduct"} className="px-8 py-4 bg-orange-500 rounded text-white">
           View all
-        </button>
+        </Link>
       </div>
     </div>
   );

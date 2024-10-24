@@ -11,18 +11,19 @@ import { useContext, useState } from "react";
 import { IoIosArrowBack } from "react-icons/io";
 import { usePathname, useSelectedLayoutSegment } from "next/navigation";
 import { Poppins } from "next/font/google";
+import { useShopContext } from "@/app/context/ShopContext";
 // import { ShopContext } from "../context/ShopContext"; // Assuming ShopContext is server/client compatible
 const font = Poppins({ weight: "400", subsets: ["latin"] });
 const Navbar = () => {
   const [visible, setVisible] = useState(false);
   const pathname = usePathname();
 
-  //   const { setShowSearch, getCartCount } = useContext(ShopContext);
+  const { setShowSearch, getCartCount } = useShopContext();
 
-  //   // Function to handle search icon click
-  //   const handleSearchClick = () => {
-  //     setShowSearch(true); // Open the search modal
-  //   };
+  // Function to handle search icon click
+  const handleSearchClick = () => {
+    setShowSearch(true); // Open the search modal
+  };
 
   return (
     <div className="max-w-7xl mx-auto px-10 lg:px-0 flex items-center justify-between py-5 border-gray-400 border-b">
@@ -79,14 +80,18 @@ const Navbar = () => {
 
       {/* Icons */}
       <div className="flex items-center space-x-4 lg:space-x-6">
-        <div className="flex items-center border-gray-300 rounded p-0 lg:p-2 bg-transparent lg:bg-gray-100 w-full lg:w-[243px]">
+        <Link
+          href={"/searchProduct"}
+          onClick={handleSearchClick}
+          className="flex items-center border-gray-300 rounded p-0 lg:p-2 bg-transparent lg:bg-gray-100 w-full lg:w-[243px]"
+        >
           <input
             type="text"
             placeholder="What are you looking for?"
             className="border-none outline-none flex-1 bg-transparent px-2 py-1 hidden lg:block"
           />
           <CiSearch className="hover:text-gray-500 cursor-pointer !text-3xl" />
-        </div>
+        </Link>
 
         <Link href="/wishlist">
           <FaRegHeart className="!text-3xl" />
@@ -153,7 +158,6 @@ const Navbar = () => {
           >
             Sign In
           </Link>
-          
         </div>
       </div>
     </div>

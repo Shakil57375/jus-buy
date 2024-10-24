@@ -7,6 +7,8 @@ const ShopContext = createContext();
 
 export const ShopProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
+  const [search, setSearch] = useState("");
+  const [showSearch, setShowSearch] = useState(false);
   const currency = "$";
   useEffect(() => {
     // Assuming you're using a static array for products
@@ -14,7 +16,16 @@ export const ShopProvider = ({ children }) => {
   }, []);
 
   return (
-    <ShopContext.Provider value={{ products, currency }}>
+    <ShopContext.Provider
+      value={{
+        products,
+        currency,
+        search,
+        setSearch,
+        showSearch,
+        setShowSearch,
+      }}
+    >
       {children}
     </ShopContext.Provider>
   );
