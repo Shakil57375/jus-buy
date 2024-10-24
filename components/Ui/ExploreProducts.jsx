@@ -6,16 +6,14 @@ import ProductItem from "../custom/ProductItem";
 
 const ExploreProducts = () => {
   const { products } = useShopContext();
-
-  // Filter for the latest products (optional)
-  const latestProducts = products.filter(product => product.latest);
+    console.log(products)
 
   return (
     <div className="w-full mb-8">
       <Title title={"Our Products"} subtitle={"Explore Our Products"} />
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 justify-items-center gap-4">
         {/* Display up to 8 latest products or all products if no filtering is needed */}
-        {latestProducts.slice(0, 8).map((product) => (
+        {products.slice(0, 8).map((product) => (
           <ProductItem key={product._id} product={product} />
         ))}
       </div>
