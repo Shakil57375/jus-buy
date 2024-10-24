@@ -50,7 +50,7 @@ const HeroWithSidebar = () => {
       </div>
 
       {/* Hero Carousel */}
-      <div className="w-full lg:w-3/4 border-l border-gray-400 pl-8">
+      <div className="w-full lg:w-3/4  border-l border-transparent lg:border-gray-400 pl-8">
         <Swiper
           modules={[Pagination, Autoplay]}
           pagination={{ clickable: true }}
@@ -72,7 +72,7 @@ const HeroWithSidebar = () => {
           <SwiperSlide>
             <Image
               src="/assets/banner-8.jpg"
-              className="object-contain rounded-lg w-[450px] lg:w-full h-[350px]"
+              className="object-contain rounded-lg w-[450px] lg:w-full h-full lg:h-[350px]"
               alt="banner"
               width={450}
               height={350}
@@ -81,16 +81,16 @@ const HeroWithSidebar = () => {
           <SwiperSlide>
             <Image
               src="/assets/banner-9.jpg"
-              className="object-contain rounded-lg w-[450px] lg:w-full h-[350px]"
+              className="object-contain rounded-lg w-[450px] lg:w-full h-full lg:h-[350px]"
               alt="banner"
               width={450}
               height={350}
-            />
+            /> 
           </SwiperSlide>
           <SwiperSlide>
             <Image
               src="/assets/banner-10.jpg"
-              className="object-contain rounded-lg w-[450px] lg:w-full h-[350px]"
+              className="object-contain rounded-lg w-[450px] lg:w-full h-full lg:h-[350px]"
               alt="banner"
               width={450}
               height={350}
@@ -99,7 +99,7 @@ const HeroWithSidebar = () => {
           <SwiperSlide>
             <Image
               src="/assets/banner-11.jpg"
-              className="object-contain rounded-lg w-[450px] lg:w-full h-[350px]"
+              className="object-contain rounded-lg w-[450px] lg:w-full h-full lg:h-[350px]"
               alt="banner"
               width={450}
               height={350}

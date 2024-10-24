@@ -78,30 +78,29 @@ const Navbar = () => {
       </div>
 
       {/* Icons */}
-      <div className="flex items-center space-x-6">
-        <div
-          //   onClick={handleSearchClick}
-          className="flex items-center  border-gray-300 rounded p-2 bg-gray-100 w-[243px]"
-        >
+      <div className="flex items-center space-x-4 lg:space-x-6">
+        <div className="flex items-center border-gray-300 rounded p-0 lg:p-2 bg-transparent lg:bg-gray-100 w-full lg:w-[243px]">
           <input
             type="text"
             placeholder="What are you looking for?"
-            className="border-none outline-none flex-1 bg-transparent px-2 py-1"
+            className="border-none outline-none flex-1 bg-transparent px-2 py-1 hidden lg:block"
           />
-          <CiSearch className="hover:text-gray-500 cursor-pointer text-2xl" />
+          <CiSearch className="hover:text-gray-500 cursor-pointer !text-3xl" />
         </div>
+
         <Link href="/wishlist">
-          <FaRegHeart className=" text-2xl" />
+          <FaRegHeart className="!text-3xl" />
         </Link>
         <Link href="/cart" className="relative">
-          <IoCartOutline className="hover:text-gray-500 cursor-pointer text-3xl" />
+          <IoCartOutline className="hover:text-gray-500 cursor-pointer !text-3xl" />
           <span className="absolute bottom-0 right-0 bg-black text-white text-xs w-4 h-4 rounded-full flex items-center justify-center">
             {/* {getCartCount()} */}0
           </span>
         </Link>
         <MdOutlineMenuOpen
           onClick={() => setVisible(true)}
-          className="hover:text-gray-500 cursor-pointer text-3xl sm:hidden"
+          className="hover:text-gray-500 cursor-pointer !text-3xl sm:hidden"
+          size={100}
         />
       </div>
 
@@ -127,11 +126,11 @@ const Navbar = () => {
             HOME
           </Link>
           <Link
-            href="/collection"
+            href="/contact"
             onClick={() => setVisible(false)}
             className="hover:text-gray-500 py-6 pl-6 border"
           >
-            COLLECTION
+            Contact
           </Link>
           <Link
             href="/about"
@@ -141,15 +140,20 @@ const Navbar = () => {
             ABOUT
           </Link>
           <Link
-            href="/contact"
+            href="/signup"
             onClick={() => setVisible(false)}
             className="hover:text-gray-500 py-6 pl-6 border"
           >
-            CONTACT
+            Sign Up
           </Link>
-          <button className="border rounded-full px-4 font-medium text-sm hover:bg-gray-100 py-6 pl-6">
-            Admin Panel
-          </button>
+          <Link
+            href="/signin"
+            onClick={() => setVisible(false)}
+            className="hover:text-gray-500 py-6 pl-6 border"
+          >
+            Sign In
+          </Link>
+          
         </div>
       </div>
     </div>
