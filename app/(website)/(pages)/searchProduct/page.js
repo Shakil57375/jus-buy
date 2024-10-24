@@ -122,7 +122,7 @@ const Collection = () => {
 
   return (
     <div>
-      <SearchBar />
+      
       <div className="flex flex-col justify-between items-start sm:flex-row gap-1 sm:gap-10 pt-10 border-t mb-8">
         {/* Filter Options */}
         <div className="basis-3/12">
@@ -245,17 +245,7 @@ const Collection = () => {
 
         {/* Products Section */}
         <div className="basis-9/12">
-          <div className="flex justify-between items-center text-base sm:text-2xl mb-4">
-            <select
-              onChange={(e) => setSortType(e.target.value)}
-              className="border-2 border-gray-300 text-sm px-2 h-8"
-            >
-              <option value="relevant">Sort by: Relevant</option>
-              <option value="low-high">Sort by: Low to High</option>
-              <option value="high-low">Sort by: High to Low</option>
-            </select>
-          </div>
-
+        <SearchBar />
           {/* Display Products */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 gap-y-6">
             {currentProducts.map((product) => (
