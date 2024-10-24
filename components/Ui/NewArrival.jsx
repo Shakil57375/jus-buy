@@ -6,6 +6,10 @@ import ProductItem from "../custom/ProductItem";
 
 const NewArrival = () => {
   const { products } = useShopContext();
+  console.log(products)
+  // Filter products to get only the latest ones
+  const latestProducts = products.filter((product) => product.latest);
+
   return (
     <div>
       <div className="flex items-end justify-between mb-5">
@@ -14,8 +18,8 @@ const NewArrival = () => {
           View all
         </button>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4  justify-items-center gap-4">
-        {products.slice(1,5).map((product) => (
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 justify-items-center gap-4">
+        {latestProducts.slice(0, 4).map((product) => (
           <ProductItem key={product._id} product={product} />
         ))}
       </div>

@@ -58,6 +58,15 @@ import k_wc_1_4 from "./k-wc-1-4.webp";
 import user_1 from "./user_1.jpg"
 import user_2 from "./user_2.jpg"
 import user_3 from "./user_3.jpg"
+import m_as_1_1 from "./m_as_1_1.jpg"
+import m_as_1_2 from "./m_as_1_2.jpg"
+import m_as_1_3 from "./m_as_1_3.jpg"
+import k_rj_1_1 from "./k_rj_1_1.jpg"
+import k_rj_1_2 from "./k_rj_1_2.jpg"
+import k_rj_1_3 from "./k_rj_1_3.jpg"
+import m_fs_1_1 from "./m_fs_1_1.webp"
+import m_fs_1_2 from "./m_fs_1_2.webp"
+import m_fs_1_3 from "./m_fs_1_3.webp"
 
 export const assets = {
   logo,
@@ -115,6 +124,15 @@ export const assets = {
   user_1,
   user_2,
   user_3,
+  m_as_1_1,
+  m_as_1_2,
+  m_as_1_3,
+  k_rj_1_1,
+  k_rj_1_2,
+  k_rj_1_3,
+  m_fs_1_1,
+  m_fs_1_2,
+  m_fs_1_3,
 };
 
 export const products = [
@@ -255,5 +273,56 @@ export const products = [
     trending: true,
     rating: 4.4, // average rating
     ratingCount: 250, // number of ratings
+  },
+  {
+    _id: 1232148668553,
+    name: "Men's Formal Shirt",
+    description: "A stylish formal shirt for business and special occasions.",
+    price: 60,
+    discountPrice: 55,
+    images: [m_fs_1_1, m_fs_1_2, m_fs_1_3],
+    category: "Men",
+    subCategory: "Topware",
+    sizes: ["M", "L", "XL"],
+    date: 1716634345457,
+    bestseller: true,
+    latest: false,
+    trending: true,
+    rating: 4.5,
+    ratingCount: 200,
+  },
+  {
+    _id: 1232148668555,
+    name: "Kids' Rain Jacket",
+    description: "A waterproof rain jacket for kids to keep them dry.",
+    price: 45,
+    discountPrice: 40,
+    images: [k_rj_1_1, k_rj_1_2, k_rj_1_3],
+    category: "Kids",
+    subCategory: "Outerwear",
+    sizes: ["S", "M", "L"],
+    date: 1716634345459,
+    bestseller: false,
+    latest: true,
+    trending: false,
+    rating: 4.0,
+    ratingCount: 120,
+  },
+  {
+    _id: 1232148668556,
+    name: "Men's Athletic Shorts",
+    description: "Comfortable shorts designed for sports and outdoor activities.",
+    price: 35,
+    discountPrice: 30,
+    images: [m_as_1_1, m_as_1_2, m_as_1_3],
+    category: "Men",
+    subCategory: "Bottomware",
+    sizes: ["M", "L", "XL"],
+    date: 1716634345460,
+    bestseller: false,
+    latest: true,
+    trending: true,
+    rating: 4.6,
+    ratingCount: 180,
   }
 ];
