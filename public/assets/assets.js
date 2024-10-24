@@ -1,5 +1,4 @@
 import logo from "./logo.png";
-import about_us_vd from "./Online Shopping 2D animation.mp4"
 import google_icon from "./google-icon.png"
 import about_us_img from "./How-to-write-about-us-page-for-eCommerce-website.png";
 import about_us_img_how_it_works_img from "./Customer-Journey-blog.gif"
@@ -70,7 +69,6 @@ export const assets = {
   banner_3,
   banner_4,
   banner_5,
-  about_us_vd,
   banner_6,
   m_s_1_1,
   m_s_1_2,
