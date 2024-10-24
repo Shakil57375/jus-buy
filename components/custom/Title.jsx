@@ -14,7 +14,7 @@ const Title = ({ title, subtitle }) => {
             {/* Subtitle */}
             <div >
                 <p className="text-4xl font-bold text-gray-800 ">{subtitle}</p>
-            </div>
+            </div> 
         </div>
     );
 };

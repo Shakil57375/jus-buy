@@ -1,5 +1,6 @@
 import Categories from "@/components/Ui/Categories";
 import CategorySlider from "@/components/Ui/CategorySlider";
+import NewArrival from "@/components/Ui/NewArrival";
 import HeroWithSidebar from "@/components/Ui/SidebarAndBanner";
 
 export default function Home() {
@@ -8,6 +9,7 @@ export default function Home() {
       <HeroWithSidebar />
       <Categories />
       <CategorySlider />
+      <NewArrival/>
     </div>
   );
 }

@@ -78,7 +78,7 @@ const CategorySlider = () => {
                 height={200}
                 className="object-contain h-[200px] w-[200px] bg-cover"
               />{" "}
-              <h3 className="text-lg font-semibold mt-4">{category.name}</h3>
+              <h3 className="text-xl font-semibold text-orange-500">{category.name}</h3>
             </div>
           </SwiperSlide>
         ))}
