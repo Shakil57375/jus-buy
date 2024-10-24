@@ -11,13 +11,26 @@ const Collection = () => {
   const [showFilter, setShowFilter] = useState(false);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [selectedCategories, setSelectedCategories] = useState([]);
-  const [selectedSubCategories, setSelectedSubCategories] = useState([]);
-  const [sortType, setSortType] = useState("relevant");
-
+  const [isPriceRangeOpen, setIsPriceRangeOpen] = useState(true);
+  const [selectedPriceRange, setSelectedPriceRange] = useState([]);
   const [isCategoryOpen, setIsCategoryOpen] = useState(true); // Manage toggle state
 
   const handleCategoryToggle = () => {
     setIsCategoryOpen(!isCategoryOpen); // Toggle the state on click
+  };
+
+  const handlePriceRangeToggle = () => {
+    setIsPriceRangeOpen(!isPriceRangeOpen);
+  };
+
+  // Manage state for price range filter
+  const handlePriceRangeChange = (e) => {
+    const range = e.target.value;
+    setSelectedPriceRange((prevRange) =>
+      prevRange.includes(range)
+        ? prevRange.filter((item) => item !== range)
+        : [...prevRange, range]
+    );
   };
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -37,19 +50,8 @@ const Collection = () => {
     );
   };
 
-  // Toggle selection for subcategories
-  const handleSubCategoryChange = (e) => {
-    const subCategory = e.target.value;
-    setSelectedSubCategories(
-      (prevSubCategories) =>
-        prevSubCategories.includes(subCategory)
-          ? prevSubCategories.filter((item) => item !== subCategory) // Remove if already selected
-          : [...prevSubCategories, subCategory] // Add if not selected
-    );
-  };
-
   const applyFilter = () => {
-    let productsCopy = products.slice(); // Start with all products
+    let productsCopy = products.slice();
 
     if (showSearch && search) {
       productsCopy = productsCopy.filter((item) =>
@@ -62,27 +64,23 @@ const Collection = () => {
         selectedCategories.includes(item.category)
       );
     }
-    if (selectedSubCategories.length > 0) {
-      productsCopy = productsCopy.filter((item) =>
-        selectedSubCategories.includes(item.subCategory)
-      );
-    }
-    setFilteredProducts(productsCopy);
-  };
 
-  const sortProduct = () => {
-    let fpCopy = filteredProducts.slice();
-    switch (sortType) {
-      case "low-high":
-        setFilteredProducts(fpCopy.sort((a, b) => a.price - b.price));
-        break;
-      case "high-low":
-        setFilteredProducts(fpCopy.sort((a, b) => b.price - a.price));
-        break;
-      default:
-        applyFilter(); // When sorting by relevance, just apply filters
-        break;
+    if (selectedPriceRange.length > 0) {
+      productsCopy = productsCopy.filter((item) => {
+        if (selectedPriceRange.includes("Value")) {
+          return item.price <= 20;
+        }
+        if (selectedPriceRange.includes("Mid-range")) {
+          return item.price > 20 && item.price <= 60;
+        }
+        if (selectedPriceRange.includes("High")) {
+          return item.price > 60;
+        }
+        return true;
+      });
     }
+
+    setFilteredProducts(productsCopy);
   };
 
   // Pagination logic
@@ -110,19 +108,12 @@ const Collection = () => {
     }
   };
 
-  // Apply filters and search when categories, subcategories, or search term change
   useEffect(() => {
     applyFilter();
-  }, [selectedCategories, selectedSubCategories, search, showSearch]);
-
-  // Apply sorting when sort type changes
-  useEffect(() => {
-    sortProduct();
-  }, [sortType]);
+  }, [selectedCategories, search, selectedPriceRange, showSearch]);
 
   return (
     <div>
-      
       <div className="flex flex-col justify-between items-start sm:flex-row gap-1 sm:gap-10 pt-10 border-t mb-8">
         {/* Filter Options */}
         <div className="basis-3/12">
@@ -240,12 +231,58 @@ const Collection = () => {
                 </label>
               </div>
             </div>
+            {/* Price Filter */}
+            <div>
+              <p
+                className="mb-3 text-sm font-medium text-orange-500 flex items-center cursor-pointer"
+                onClick={handlePriceRangeToggle}
+              >
+                Price{" "}
+                {isPriceRangeOpen ? (
+                  <IoIosArrowUp className="ml-[267px] text-xl" /> // Up arrow when open
+                ) : (
+                  <IoIosArrowDown className="ml-[267px] text-xl" /> // Down arrow when closed
+                )}
+              </p>
+              <div
+                className={`pl-5 mt-2 py-1 ${
+                  isPriceRangeOpen ? "block" : "hidden"
+                }`}
+              >
+                <div className="flex flex-col gap-2 text-sm font-light">
+                  <label className="flex gap-2">
+                    <input
+                      type="checkbox"
+                      value="Value"
+                      onChange={handlePriceRangeChange}
+                    />{" "}
+                    Value under $20
+                  </label>
+                  <label className="flex gap-2">
+                    <input
+                      type="checkbox"
+                      value="Mid-range"
+                      onChange={handlePriceRangeChange}
+                    />{" "}
+                    MidRange $20-$60
+                  </label>
+                  <label className="flex gap-2">
+                    <input
+                      type="checkbox"
+                      value="High"
+                      onChange={handlePriceRangeChange}
+                    />{" "}
+                    High-end above $60
+                  </label>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
         {/* Products Section */}
         <div className="basis-9/12">
-        <SearchBar />
+          <SearchBar />
           {/* Display Products */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 gap-y-6">
             {currentProducts.map((product) => (
