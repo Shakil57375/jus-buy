@@ -83,7 +83,7 @@ const Navbar = () => {
         <Link
           href={"/searchProduct"}
           onClick={handleSearchClick}
-          className="flex items-center border-gray-300 rounded p-0 lg:p-2 bg-transparent lg:bg-gray-100 w-full lg:w-[243px]"
+          className="flex items-center border-gray-300 rounded p-0 lg:p-2 bg-transparent lg:bg-gray-100 w-full lg:w-[250px]"
         >
           <input
             type="text"
