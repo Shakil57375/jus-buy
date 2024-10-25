@@ -4,33 +4,7 @@ import Image from "next/image";
 import { useShopContext } from "@/app/context/ShopContext";
 import React from "react";
 import Link from "next/link";
-
-// Custom Rating Component
-const RatingComponent = ({ value, max = 5 }) => {
-  const stars = Array.from({ length: max }, (v, i) => i + 1);
-
-  return (
-    <div className="flex items-center gap-1">
-      {stars.map((star) => (
-        <svg
-          key={star}
-          xmlns="http://www.w3.org/2000/svg"
-          fill={star <= value ? "gold" : "none"}
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          strokeWidth={2}
-          className="w-5 h-5 text-yellow-500"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l2.11 6.518a1 1 0 00.95.69h6.84c.97 0 1.371 1.24.588 1.81l-5.53 4.02a1 1 0 00-.364 1.118l2.11 6.517c.3.92-.755 1.688-1.54 1.118l-5.53-4.02a1 1 0 00-1.176 0l-5.53 4.02c-.785.57-1.838-.197-1.539-1.118l2.11-6.517a1 1 0 00-.364-1.118l-5.53-4.02c-.783-.57-.383-1.81.588-1.81h6.84a1 1 0 00.95-.69l2.11-6.518z"
-          />
-        </svg>
-      ))}
-    </div>
-  );
-};
+import RatingComponent from "../Ui/RatingComponent";
 
 const ProductItem = ({ product }) => {
   const { currency, wishList, toggleWishList } = useShopContext();
@@ -43,8 +17,8 @@ const ProductItem = ({ product }) => {
             src={product.images[0]}
             layout="responsive"
             alt="product img"
-            width={450}
-            height={300}
+            width={270}
+            height={250}
             className="rounded-lg transition duration-500 hover:scale-125"
           />
           {/* Wishlist Button */}
@@ -60,22 +34,23 @@ const ProductItem = ({ product }) => {
           </button>
         </div>
         <div className="mt-4 px-5 pb-5">
-          <h5 className="text-xl tracking-tight text-slate-900">
+          <h5 className="text-base leading-6 tracking-tight text-black font-medium">
             {product.name}
           </h5>
-          <div className="mt-2 mb-5 flex items-center justify-between">
+          <div className="mt-2 mb-5 flex items-center justify-between py-2 ">
             <p>
-              <span className="text-3xl font-bold text-slate-900">
+              <span className="text-base font-medium text-[#FE6201]">
                 {currency}
                 {product.discountPrice}
               </span>
             </p>
-          </div>
-
-          {/* Rating Section */}
-          <div className="flex items-center gap-1 pb-2 absolute bottom-1">
-            <RatingComponent value={product.rating} />
-            <p>({product.ratingCount})</p>
+            {/* Rating Section */}
+            <div className="flex items-center gap-1">
+              <RatingComponent value={product.rating} />
+              <span className="text-xs leading-6 text-black">
+                ({product.ratingCount})
+              </span>
+            </div>
           </div>
         </div>
       </div>
