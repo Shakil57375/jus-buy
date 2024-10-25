@@ -90,6 +90,7 @@ export const ShopProvider = ({ children }) => {
       ...wishList[itemId], // Assuming wishList holds additional product data
     }));
   };
+  
 
   useEffect(() => {
     setProducts(productsData);
