@@ -36,7 +36,7 @@ const ProductItem = ({ product }) => {
 
   return (
     <div>
-      <div className="relative m-10 flex w-full max-w-xs flex-col overflow-hidden rounded-lg">
+      <div className="relative m-10 flex w-full max-w-xs flex-col overflow-hidden rounded-lg ">
         <div className=" mx-3 mt-3 h-60 overflow-hidden rounded-xl relative">
           <Image
             src={product.images[0]}
@@ -72,7 +72,7 @@ const ProductItem = ({ product }) => {
           </div>
 
           {/* Rating Section */}
-          <div className="flex items-center gap-1 pb-2">
+          <div className="flex items-center gap-1 pb-2 absolute bottom-1">
             <RatingComponent value={product.rating} />
             <p>({product.ratingCount})</p>
           </div>

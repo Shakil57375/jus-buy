@@ -3,12 +3,13 @@ import React, { useEffect, useState } from "react";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { useShopContext } from "@/app/context/ShopContext";
 import Title from "@/components/custom/Title";
-import ProductItem from "@/components/custom/ProductItem";
 import SearchBar from "@/components/custom/Searchbar";
+import FilterSection from "@/app/utils/filterSection";
+import ProductList from "@/app/utils/productList";
+import Pagination from "@/app/utils/pagination";
 
 const Collection = () => {
   const { products, search, showSearch } = useShopContext();
-  const [showFilter, setShowFilter] = useState(false);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [isPriceRangeOpen, setIsPriceRangeOpen] = useState(true);
@@ -118,210 +119,39 @@ const Collection = () => {
         {/* Filter Options */}
         <div className="basis-3/12">
           <Title title="This Month" subtitle="New Arrival" />
-          <p
-            onClick={() => setShowFilter(!showFilter)}
-            className="my-2 text-xl flex items-center cursor-pointer gap-2"
-          >
-            <span className="w-full text-2xl font-bold bg-orange-500 py-3 px-2 text-white flex items-start justify-start rounded-xl">
-              Filters
-            </span>
-            <IoIosArrowDown
-              className={`text-2xl sm:hidden ${showFilter ? "rotate-180" : ""}`}
-            />
-          </p>
-
-          {/* Category Filter */}
-          <div>
-            <p
-              className="mb-3 text-sm font-medium text-orange-500 flex items-center cursor-pointer"
-              onClick={handleCategoryToggle}
-            >
-              Categories{" "}
-              {isCategoryOpen ? (
-                <IoIosArrowUp className="ml-56 text-xl" /> // Up arrow when open
-              ) : (
-                <IoIosArrowDown className="ml-56 text-xl" /> // Down arrow when closed
-              )}
-            </p>
-            <div
-              className={`pl-5 mt-2 py-1 ${
-                isCategoryOpen ? "block" : "hidden"
-              }`}
-            >
-              <div className="flex flex-col gap-2 text-sm font-light">
-                <label className="flex gap-2">
-                  <input
-                    type="checkbox"
-                    value="Women"
-                    onChange={handleCategoryChange}
-                  />{" "}
-                  Women&apos;s Fashion
-                </label>
-                <label className="flex gap-2">
-                  <input
-                    type="checkbox"
-                    value="Men"
-                    onChange={handleCategoryChange}
-                  />{" "}
-                  Men&apos;s Fashion
-                </label>
-                <label className="flex gap-2">
-                  <input
-                    type="checkbox"
-                    value="Kids"
-                    onChange={handleCategoryChange}
-                  />{" "}
-                  Kid&apos;s Fashion
-                </label>
-                <label className="flex gap-2">
-                  <input
-                    type="checkbox"
-                    value="Electronics"
-                    onChange={handleCategoryChange}
-                  />{" "}
-                  Electronics
-                </label>
-                <label className="flex gap-2">
-                  <input
-                    type="checkbox"
-                    value="LifeStyle"
-                    onChange={handleCategoryChange}
-                  />{" "}
-                  Home & LifeStyle
-                </label>
-                <label className="flex gap-2">
-                  <input
-                    type="checkbox"
-                    value="Medicine"
-                    onChange={handleCategoryChange}
-                  />{" "}
-                  Medicine
-                </label>
-                <label className="flex gap-2">
-                  <input
-                    type="checkbox"
-                    value="Sports"
-                    onChange={handleCategoryChange}
-                  />{" "}
-                  Sports & Outdoors
-                </label>
-                <label className="flex gap-2">
-                  <input
-                    type="checkbox"
-                    value="BabyToy"
-                    onChange={handleCategoryChange}
-                  />{" "}
-                  Baby&apos;s Toys
-                </label>
-                <label className="flex gap-2">
-                  <input
-                    type="checkbox"
-                    value="Groceries"
-                    onChange={handleCategoryChange}
-                  />{" "}
-                  Groceries & Pets
-                </label>
-                <label className="flex gap-2">
-                  <input
-                    type="checkbox"
-                    value="HealthAndBeauties"
-                    onChange={handleCategoryChange}
-                  />{" "}
-                  Health & Beauties
-                </label>
-              </div>
-            </div>
-            {/* Price Filter */}
-            <div>
-              <p
-                className="mb-3 text-sm font-medium text-orange-500 flex items-center cursor-pointer"
-                onClick={handlePriceRangeToggle}
-              >
-                Price{" "}
-                {isPriceRangeOpen ? (
-                  <IoIosArrowUp className="ml-[267px] text-xl" /> // Up arrow when open
-                ) : (
-                  <IoIosArrowDown className="ml-[267px] text-xl" /> // Down arrow when closed
-                )}
-              </p>
-              <div
-                className={`pl-5 mt-2 py-1 ${
-                  isPriceRangeOpen ? "block" : "hidden"
-                }`}
-              >
-                <div className="flex flex-col gap-2 text-sm font-light">
-                  <label className="flex gap-2">
-                    <input
-                      type="checkbox"
-                      value="Value"
-                      onChange={handlePriceRangeChange}
-                    />{" "}
-                    Value under $20
-                  </label>
-                  <label className="flex gap-2">
-                    <input
-                      type="checkbox"
-                      value="Mid-range"
-                      onChange={handlePriceRangeChange}
-                    />{" "}
-                    MidRange $20-$60
-                  </label>
-                  <label className="flex gap-2">
-                    <input
-                      type="checkbox"
-                      value="High"
-                      onChange={handlePriceRangeChange}
-                    />{" "}
-                    High-end above $60
-                  </label>
-                </div>
-              </div>
-            </div>
-          </div>
+          <FilterSection
+            selectedCategories={selectedCategories}
+            setSelectedCategories={setSelectedCategories}
+            selectedPriceRange={selectedPriceRange}
+            setSelectedPriceRange={setSelectedPriceRange}
+          />
         </div>
 
         {/* Products Section */}
         <div className="basis-9/12">
-          <SearchBar />
-          {/* Display Products */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 gap-y-6">
-            {currentProducts.map((product) => (
-              <ProductItem key={product._id} product={product} />
-            ))}
-          </div>
+          {/* Search Products */}
+            <SearchBar />
 
-          {/* Pagination */}
-          <div className="mt-8 flex justify-center items-center gap-4">
-            <button
-              onClick={handlePrevPage}
-              className={`px-3 py-1 border ${
-                currentPage === 1 ? "cursor-not-allowed" : ""
-              }`}
-              disabled={currentPage === 1}
-            >
-              Prev
-            </button>
-            {Array.from({ length: totalPages }, (_, index) => (
-              <button
-                key={index + 1}
-                className={`px-3 py-1 border ${
-                  index + 1 === currentPage ? "bg-orange-500 text-white" : ""
-                }`}
-                onClick={() => handlePageChange(index + 1)}
-              >
-                {index + 1}
-              </button>
-            ))}
-            <button
-              onClick={handleNextPage}
-              className={`px-3 py-1 border ${
-                currentPage === totalPages ? "cursor-not-allowed" : ""
-              }`}
-              disabled={currentPage === totalPages}
-            >
-              Next
-            </button>
-          </div>
+          {/* Check if there are no products after filtering */}
+          {currentProducts.length === 0 ? (
+            <p className="text-center text-lg font-medium text-gray-600 mt-28">
+              No products found matching your criteria.
+            </p>
+          ) : (
+            <>
+              {/* Display Products */}
+              <ProductList currentProducts={currentProducts} />
+
+              {/* Pagination */}
+              <Pagination
+                currentPage={currentPage}
+                totalPages={totalPages}
+                handlePageChange={handlePageChange}
+                handleNextPage={handleNextPage}
+                handlePrevPage={handlePrevPage}
+              />
+            </>
+          )}
         </div>
       </div>
     </div>

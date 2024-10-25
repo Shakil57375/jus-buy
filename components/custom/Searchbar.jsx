@@ -1,13 +1,9 @@
-import { useContext, useEffect, useState } from "react";
 import { CgClose } from "react-icons/cg";
-import { BiSearch } from "react-icons/bi";
 import { useShopContext } from "@/app/context/ShopContext";
 
 const SearchBar = () => {
   const { search, setSearch, showSearch, setShowSearch } = useShopContext();
-  const [visible, setVisible] = useState(true);
-
-  return showSearch && visible ? (
+  return showSearch  ? (
     <div className="text-center transition duration-100">
       <div className="inline-flex items-end justify-end border border-gray-400 px-5 py-2 my-5 mx-3 rounded-full w-1/2">
         <input
