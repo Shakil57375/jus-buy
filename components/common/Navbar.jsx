@@ -99,7 +99,7 @@ const Navbar = () => {
         <Link href="/cart" className="relative">
           <IoCartOutline className="hover:text-gray-500 cursor-pointer !text-3xl" />
           <span className="absolute bottom-0 right-0 bg-black text-white text-xs w-4 h-4 rounded-full flex items-center justify-center">
-            {/* {getCartCount()} */}0
+            {getCartCount()}
           </span>
         </Link>
         <MdOutlineMenuOpen

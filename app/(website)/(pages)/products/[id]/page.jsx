@@ -13,7 +13,7 @@ const ProductDetail = () => {
   const { products, currency } = useShopContext();
   const [selectedImage, setSelectedImage] = useState(""); // Track selected image
   const [Size, setSize] = useState("");
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(1);
   const [loading, setLoading] = useState(true); // Loading state
   const [dataNotFound, setDataNotFound] = useState(false); // Track if data is not found
 

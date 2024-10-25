@@ -7,8 +7,13 @@ import Link from "next/link";
 import RatingComponent from "../Ui/RatingComponent";
 
 const ProductItem = ({ product }) => {
-  const { currency, wishList, toggleWishList } = useShopContext();
+  const { currency, wishList, toggleWishList, addToCart } = useShopContext();
   const [isHovered, setIsHovered] = useState(false); // State to track hover
+
+  const handleAddToCart = (e) => {
+    e.preventDefault()
+    addToCart(product._id, 1);
+  };
 
   return (
     <Link href={`/products/${product._id.toString()}`}>
@@ -38,7 +43,7 @@ const ProductItem = ({ product }) => {
             {/* {wishList[product?._id] ? (
               <FaHeart className="text-red-500" />
             ) : ( */}
-              <FaRegHeart className="text-gray-500" />
+            <FaRegHeart className="text-gray-500" />
             {/* )} */}
           </button>
 
@@ -46,7 +51,7 @@ const ProductItem = ({ product }) => {
           {isHovered && (
             <button
               className="absolute bottom-0 w-full py-3 text-white bg-[#FE6201] text-center font-semibold"
-              onClick={(e) => e.preventDefault()} // Prevent link navigation
+              onClick={handleAddToCart} // Prevent link navigation
             >
               Add To Cart
             </button>
