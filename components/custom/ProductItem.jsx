@@ -3,6 +3,7 @@ import { FaHeart, FaRegHeart } from "react-icons/fa";
 import Image from "next/image";
 import { useShopContext } from "@/app/context/ShopContext";
 import React from "react";
+import Link from "next/link";
 
 // Custom Rating Component
 const RatingComponent = ({ value, max = 5 }) => {
@@ -35,7 +36,7 @@ const ProductItem = ({ product }) => {
   const { currency, wishList, toggleWishList } = useShopContext();
 
   return (
-    <div>
+    <Link href={`/products/${product._id.toString()}`}>
       <div className="relative m-10 flex w-full max-w-xs flex-col overflow-hidden rounded-lg ">
         <div className=" mx-3 mt-3 h-60 overflow-hidden rounded-xl relative">
           <Image
@@ -78,7 +79,7 @@ const ProductItem = ({ product }) => {
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
