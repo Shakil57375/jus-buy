@@ -75,6 +75,22 @@ export const ShopProvider = ({ children }) => {
     return totalCount;
   };
 
+  // Function to get cart items
+  const getCartItems = () => {
+    return Object.keys(cartItems).map((itemId) => ({
+      id: itemId,
+      quantity: cartItems[itemId],
+    }));
+  };
+
+  // Function to get wishlist items
+  const getWishListItems = () => {
+    return Object.keys(wishList).map((itemId) => ({
+      id: itemId,
+      ...wishList[itemId], // Assuming wishList holds additional product data
+    }));
+  };
+
   useEffect(() => {
     setProducts(productsData);
   }, []);
@@ -93,10 +109,12 @@ export const ShopProvider = ({ children }) => {
         setCartItems,
         getCartCount,
         getWishListCount,
-        wishList, 
-        toggleWishList, 
+        wishList,
+        toggleWishList,
         toastMessage,
-        showToast, 
+        showToast,
+        getCartItems,
+        getWishListItems
       }}
     >
       {children}
