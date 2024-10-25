@@ -21,7 +21,7 @@ const CartPage = () => {
   };
 
   return (
-    <div className="container mx-auto mt-10">
+    <div className="container mx-auto my-12">
       {/* Breadcrumb */}
       <div className="flex items-center space-x-2 text-gray-600 mb-8">
         <Link href="/" className="hover:underline">
