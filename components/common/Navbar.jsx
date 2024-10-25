@@ -9,7 +9,7 @@ import Image from "next/image"; // For optimized image rendering
 import Link from "next/link"; // Use Next.js link component for routing
 import { useContext, useState } from "react";
 import { IoIosArrowBack } from "react-icons/io";
-import { usePathname, useSelectedLayoutSegment } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { Poppins } from "next/font/google";
 import { useShopContext } from "@/app/context/ShopContext";
 // import { ShopContext } from "../context/ShopContext"; // Assuming ShopContext is server/client compatible
@@ -96,14 +96,14 @@ const Navbar = () => {
         <Link href="/wishlist" className="relative">
           <FaRegHeart className="!text-3xl" />
           {/* Wishlist Counter */}
-          <span className="absolute bottom-0 right-0 bg-black text-white text-xs w-4 h-4 rounded-full flex items-center justify-center">
+          <span className="absolute bottom-0 right-0 bg-orange-500 text-white text-xs w-4 h-4 rounded-full flex items-center justify-center">
             {getWishListCount()}
           </span>
         </Link>
 
         <Link href="/cart" className="relative">
           <IoCartOutline className="hover:text-gray-500 cursor-pointer !text-3xl" />
-          <span className="absolute bottom-0 right-0 bg-black text-white text-xs w-4 h-4 rounded-full flex items-center justify-center">
+          <span className="absolute bottom-0 right-0 bg-orange-500 text-white text-xs w-4 h-4 rounded-full flex items-center justify-center">
             {getCartCount()}
           </span>
         </Link>
