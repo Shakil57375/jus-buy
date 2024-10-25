@@ -1,5 +1,5 @@
 import React from "react";
-import { FaRegHeart } from "react-icons/fa";
+import { FaRegHeart, FaHeart } from "react-icons/fa"; // Import filled heart icon
 import { IoCartOutline } from "react-icons/io5";
 import RatingComponent from "./RatingComponent";
 import { useShopContext } from "@/app/context/ShopContext";
@@ -12,7 +12,8 @@ const ProductInfo = ({
   Size,
   quantity,
 }) => {
-  const { addToCart } = useShopContext();
+  const { addToCart, wishList, toggleWishList } = useShopContext(); // Destructure toggleWishList and wishList
+
   return (
     <div className="flex-1 p-6 bg-white rounded-lg">
       {/* Product Title and Brand */}
@@ -70,7 +71,7 @@ const ProductInfo = ({
         {/* Quantity Selector */}
         <div className="flex items-center">
           <button
-            onClick={() => setQuantity((prev) => prev - 1)}
+            onClick={() => setQuantity((prev) => Math.max(prev - 1, 1))} // Prevent negative quantity
             className="btn border border-gray-500 hover:bg-orange-600 hover:text-white px-3 py-2 rounded-tl-lg rounded-bl-lg text-black text-lg"
           >
             -
@@ -92,10 +93,24 @@ const ProductInfo = ({
           <button className="btn bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-lg">
             Buy Now
           </button>
-          <button className="btn border border-gray-500 hover:bg-orange-600 hover:text-white px-3 py-2 rounded-lg ml-3">
-            <FaRegHeart className="text-2xl" />
+
+          {/* Wishlist Button */}
+          <button
+            onClick={() => toggleWishList(product._id)} // Toggle wishlist on click
+            className="btn border border-gray-500 hover:bg-orange-600 hover:text-white px-3 py-2 rounded-lg ml-3"
+          >
+            {wishList[product._id] ? (
+              <FaHeart className="text-red-500" /> // Filled heart if in wishlist
+            ) : (
+              <FaRegHeart className="text-gray-500" /> // Empty heart if not in wishlist
+            )}
           </button>
-          <button onClick={() => addToCart(product._id, quantity)} className="btn border border-gray-500 hover:bg-orange-600 hover:text-white px-3 py-2 rounded-lg">
+
+          {/* Add to Cart Button */}
+          <button 
+            onClick={() => addToCart(product._id, quantity)} 
+            className="btn border border-gray-500 hover:bg-orange-600 hover:text-white px-3 py-2 rounded-lg"
+          >
             <IoCartOutline className="hover:text-gray-500 cursor-pointer text-3xl" />
           </button>
         </div>

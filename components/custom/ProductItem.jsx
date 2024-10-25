@@ -11,7 +11,7 @@ const ProductItem = ({ product }) => {
   const [isHovered, setIsHovered] = useState(false); // State to track hover
 
   const handleAddToCart = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     addToCart(product._id, 1);
   };
 
@@ -40,11 +40,11 @@ const ProductItem = ({ product }) => {
               toggleWishList(product?._id);
             }}
           >
-            {/* {wishList[product?._id] ? (
+            {wishList[product?._id] ? (
               <FaHeart className="text-red-500" />
-            ) : ( */}
-            <FaRegHeart className="text-gray-500" />
-            {/* )} */}
+            ) : (
+              <FaRegHeart className="text-gray-500" />
+            )}
           </button>
 
           {/* Add to Cart button (appears on hover) */}

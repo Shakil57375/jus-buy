@@ -18,7 +18,7 @@ const Navbar = () => {
   const [visible, setVisible] = useState(false);
   const pathname = usePathname();
 
-  const { setShowSearch, getCartCount } = useShopContext();
+  const { setShowSearch, getCartCount , getWishListCount} = useShopContext();
 
   // Function to handle search icon click
   const handleSearchClick = () => {
@@ -93,9 +93,14 @@ const Navbar = () => {
           <CiSearch className="hover:text-gray-500 cursor-pointer !text-3xl" />
         </Link>
 
-        <Link href="/wishlist">
+        <Link href="/wishlist" className="relative">
           <FaRegHeart className="!text-3xl" />
+          {/* Wishlist Counter */}
+          <span className="absolute bottom-0 right-0 bg-black text-white text-xs w-4 h-4 rounded-full flex items-center justify-center">
+            {getWishListCount()}
+          </span>
         </Link>
+
         <Link href="/cart" className="relative">
           <IoCartOutline className="hover:text-gray-500 cursor-pointer !text-3xl" />
           <span className="absolute bottom-0 right-0 bg-black text-white text-xs w-4 h-4 rounded-full flex items-center justify-center">
