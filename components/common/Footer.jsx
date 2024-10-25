@@ -5,8 +5,9 @@ import { MdOutlineEmail, MdOutlineLocalPhone } from "react-icons/md";
 const Footer = () => {
   return (
     <footer className="bg-[#D35400] text-white w-full py-8">
-      <div className="max-w-7xl mx-auto px-10 lg:px-0 flex flex-col lg:flex-row justify-between items-center space-y-10 lg:space-y-0">
-        <div className="flex flex-col space-y-4 basis-full lg:basis-1/3 items-start ">
+      <div className="max-w-7xl mx-auto px-4 lg:px-0 flex flex-col lg:flex-row justify-between items-start space-y-8 lg:space-y-0">
+        
+        <div className="flex flex-col space-y-4 basis-full lg:basis-1/3">
           <div className="flex items-center">
             <Image
               src="/assets/footer_logo.png"
@@ -22,8 +23,8 @@ const Footer = () => {
           </p>
         </div>
 
-        <div className="flex flex-col space-y-4 basis-full lg:basis-1/3 items-center">
-          <h3 className="font-semibold text-2xl relative right-[6px]">
+        <div className="flex flex-col space-y-4 basis-full lg:basis-1/3">
+          <h3 className="font-semibold text-2xl">
             Information
           </h3>
           <ul className="space-y-2">
@@ -50,26 +51,26 @@ const Footer = () => {
           </ul>
         </div>
 
-        <div className="flex flex-col space-y-4 basis-full lg:basis-1/3 items-end">
-          <h3 className="font-semibold text-2xl relative right-20">
+        <div className="flex flex-col space-y-4 basis-full lg:basis-1/3">
+          <h3 className="font-semibold text-2xl">
             Help & Support
           </h3>
           <div className="flex flex-col gap-5">
             <div>
-              <div className="flex items-center gap-2 flex-wrap">
+              <div className="flex items-center gap-2">
                 <MdOutlineEmail className="text-xl text-white" />
                 <p className="font-medium">Email:</p>
                 <p>shakil57375@gmail.com</p>
               </div>
-              <p className="relative left-[5rem]">jusbuy@gmail.com</p>
+              <p className="pl-6">jusbuy@gmail.com</p>
             </div>
             <div>
-              <div className="flex items-center gap-2 flex-wrap">
+              <div className="flex items-center gap-2">
                 <MdOutlineLocalPhone className="text-xl text-white" />
                 <p className="font-medium">Phone:</p>
                 <p>+880 1814-265294</p>
               </div>
-              <p className="relative left-[5rem]">(+1) (888) 785-3986</p>
+              <p className="pl-6">(+1) (888) 785-3986</p>
             </div>
           </div>
         </div>
