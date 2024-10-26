@@ -86,12 +86,12 @@ const Login = () => {
                         />
                     </div>
                     <div className="mt-2 flex justify-between">
-                        <a
-                            href="#"
+                        <Link
+                            href="/"
                             className="text-orange-500 hover:text-orange-700 text-sm"
                         >
                             Forgot?
-                        </a>
+                        </Link>
                     </div>
                     <button
                         type="submit"

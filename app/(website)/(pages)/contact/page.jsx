@@ -1,4 +1,5 @@
 // pages/contact.js
+import Link from "next/link";
 import React from "react";
 import { FaPhone } from "react-icons/fa";
 import { MdOutlineMail } from "react-icons/md";
@@ -8,9 +9,9 @@ const Contact = () => {
     <div className="container mx-auto my-20">
       {/* Breadcrumb */}
       <div className="flex items-center space-x-2 text-gray-600">
-        <a href="#" className="text-gray-600 hover:underline">
+        <Link href="/" className="text-gray-600 hover:underline">
           Home
-        </a>
+        </Link>
         <span>/</span>
         <span>Contact</span>
       </div>
