@@ -18,11 +18,11 @@ const ProductItem = ({ product }) => {
   return (
     <Link href={`/products/${product._id.toString()}`}>
       <div
-        className="relative m-10 flex w-full max-w-xs flex-col overflow-hidden rounded-lg"
+        className="relative lg:m-10 md:6 m-0 flex w-full max-w-xs flex-col overflow-hidden rounded-lg"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <div className="mx-3 mt-3 h-60 overflow-hidden rounded-xl relative">
+        <div className="lg:mx-3 mx-1 mt-3 h-60 overflow-hidden rounded-xl relative">
           <Image
             src={product.images[0]}
             layout="responsive"

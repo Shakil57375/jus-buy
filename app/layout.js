@@ -34,7 +34,7 @@ export default function RootLayout({ children }) {
       >
         <ShopProvider>
           <Navbar />
-          <div className="max-w-7xl mx-auto px-10 lg:px-0">{children}</div>
+          <div className="max-w-7xl mx-auto px-4 lg:px-0">{children}</div>
           <Footer />
         </ShopProvider>
       </body>
