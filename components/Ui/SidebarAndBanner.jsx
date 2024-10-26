@@ -50,7 +50,7 @@ const HeroWithSidebar = () => {
       </div>
 
       {/* Hero Carousel */}
-      <div className="w-full lg:w-3/4  border-l border-transparent lg:border-gray-400 pl-8">
+      <div className="w-full lg:w-3/4  border-l border-transparent lg:border-gray-400 pl-0 lg:pl-8">
         <Swiper
           modules={[Pagination, Autoplay]}
           pagination={{ clickable: true }}
