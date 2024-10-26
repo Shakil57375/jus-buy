@@ -3,6 +3,7 @@ import React from "react";
 import Title from "../custom/Title";
 import { useShopContext } from "@/app/context/ShopContext";
 import ProductItem from "../custom/ProductItem";
+import Link from "next/link";
 
 const NewArrival = () => {
   const { products } = useShopContext();
@@ -14,9 +15,9 @@ const NewArrival = () => {
     <div>
       <div className="flex items-end justify-between mb-5">
         <Title title={"This Month"} subtitle={"New Arrival"} />
-        <button className="px-8 py-4 bg-orange-500 rounded text-white">
+        <Link href={"/allProduct"} className="px-8 py-4 bg-orange-500 rounded text-white">
           View all
-        </button>
+        </Link>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 justify-items-center gap-4">
         {latestProducts.slice(0, 4).map((product) => (
